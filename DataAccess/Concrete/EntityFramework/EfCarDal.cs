@@ -74,6 +74,14 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
+        public List<Car> GetByDailyPrice(Expression<Func<Car, bool>> filter)
+        {
+            using (ECommerContext context = new ECommerContext())
+            {
+                return context.Set<Car>().Where(filter).ToList();
+            }
+        }
+
     }
       
 }

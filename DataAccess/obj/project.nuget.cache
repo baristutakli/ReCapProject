@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ocUp4y8rbkprFiYR4zfO6INKQQ8KR0hYcj1oQd4EI7V/28seoEGI4kIY/fXbXgbGw6AKMjPf3AmmrQw0To3+Ww==",
+  "dgSpecHash": "gECpNG+/65g1tPR+85Qnz+H0Gszo/Z76fmk4HxdDZg2+/jxmH7YUR0iIbKGJmCsy2TOnT9ObLka9C4b8h6GeXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kbez1\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\kbez1\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

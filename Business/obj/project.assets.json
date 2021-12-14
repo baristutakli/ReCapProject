@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\Business\\Business.csproj",
+      "projectUniqueName": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\Business\\Business.csproj",
+      "projectPath": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\kbez1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\Business\\obj\\",
+      "outputPath": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -58,8 +58,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\Entities\\Entities.csproj"
+            "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\Entities\\Entities.csproj"
             }
           }
         }

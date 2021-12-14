@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\ConsoleUI\\ConsoleUI.csproj",
+      "projectUniqueName": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\ConsoleUI\\ConsoleUI.csproj",
       "projectName": "ConsoleUI",
-      "projectPath": "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\ConsoleUI\\ConsoleUI.csproj",
+      "projectPath": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\ConsoleUI\\ConsoleUI.csproj",
       "packagesPath": "C:\\Users\\kbez1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kbez1\\Documents\\kodlar\\Pratikler\\ReCapProject\\ConsoleUI\\obj\\",
+      "outputPath": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\ConsoleUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

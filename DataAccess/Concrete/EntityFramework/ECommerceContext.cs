@@ -4,9 +4,9 @@
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>
-    /// Defines the <see cref="ECommerContext" />.
+    /// Defines the <see cref="ECommerceContext" />.
     /// </summary>
-    public class ECommerContext : DbContext
+    public class ECommerceContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

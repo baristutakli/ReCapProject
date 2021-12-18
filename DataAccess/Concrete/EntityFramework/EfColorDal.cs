@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,54 +11,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfColorDal : IColorDal
+    public class EfColorDal : EfEntityRepositoryBase<Color, ECommerceContext>,IColorDal
     {
-        public void Add(Color entity)
-        {
-            using (ECommerContext context = new ECommerContext())
-            {
-                var addedEntity = context.Entry(entity);
-                addedEntity.State = EntityState.Added;
-                context.SaveChanges();
-            }
-        }
-
-        public void Delete(Color entity)
-        {
-            using (ECommerContext context = new ECommerContext())
-            {
-                var addedEntity = context.Entry(entity);
-                addedEntity.State = EntityState.Deleted;
-                context.SaveChanges();
-            }
-        }
-
-        public List<Color> GetAll(Expression<Func<Color, bool>> filter = null)
-        {
-            using (ECommerContext context = new ECommerContext())
-            {
-                return filter == null ? context.Set<Color>().ToList() :
-                    context.Set<Color>().Where(filter).ToList();
-            }
-            
-        }
-
-        public Color GetById(Expression<Func<Color, bool>> filter)
-        {
-            using (ECommerContext context = new ECommerContext())
-            {
-                return context.Set<Color>().SingleOrDefault(filter);
-            }
-        }
-
-        public void Update(Color entity)
-        {
-            using (ECommerContext context = new ECommerContext())
-            {
-                var updatedEntity = context.Entry(entity);
-                updatedEntity.State = EntityState.Modified;
-                context.SaveChanges();
-            }
-        }
+       
     }
 }

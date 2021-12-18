@@ -1482,9 +1482,25 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10"
+        },
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
       "Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Entities.dll": {}
         },
@@ -5704,6 +5720,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../../FinalProject/Core/Core.csproj",
+      "msbuildProject": "../../FinalProject/Core/Core.csproj"
+    },
     "Entities/1.0.0": {
       "type": "project",
       "path": "../Entities/Entities.csproj",
@@ -5712,6 +5733,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Core >= 1.0.0",
       "Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10"
     ]
@@ -5748,6 +5770,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\kbez1\\Documents\\kodlar\\FinalProject\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\kbez1\\Documents\\kodlar\\FinalProject\\Core\\Core.csproj"
+            },
             "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\Entities\\Entities.csproj": {
               "projectPath": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\Entities\\Entities.csproj"
             }

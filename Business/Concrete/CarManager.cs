@@ -13,7 +13,7 @@ using Business.Constants;
 
 namespace Business.Concrete
 {
-    public class ProductManager : IProductService
+    public class CarManager : ICarService
     {
         EfProductDal _efProductDal;
 
@@ -67,9 +67,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_efProductDal.GetAll(p => p.ColorID == id));
         }
 
-        public IDataResult<List<ProductDetailDto>> GetProductDetail()
+        public IDataResult<List<CarDetailDto>> GetProductDetail()
         {
-            return new SuccessDataResult<List<ProductDetailDto>>(_efProductDal.GetProductDetail());
+            return new SuccessDataResult<List<CarDetailDto>>(_efProductDal.GetProductDetail());
         }
     }
 }

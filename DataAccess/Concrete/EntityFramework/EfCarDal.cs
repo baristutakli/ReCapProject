@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfProductDal : EfEntityRepositoryBase<Car, ECommerceContext>, IProductDal
+    public class EfProductDal : EfEntityRepositoryBase<Car, ECommerceContext>, ICarDal
     {
 
-        public  List<ProductDetailDto> GetProductDetail() {
+        public  List<CarDetailDto> GetProductDetail() {
             using (ECommerceContext context = new ECommerceContext())
             {
                 var result = from p in context.Cars
@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
                              on p.ColorID equals c.ID
                              join b in context.Brands
                              on p.BrandId equals b.ID
-                             select new ProductDetailDto { CarId = p.Id, BrandName = b.Name, ColorName = c.Name, DailyPrice = p.DailyPrice };
+                             select new CarDetailDto { CarId = p.Id, BrandName = b.Name, ColorName = c.Name, DailyPrice = p.DailyPrice };
                 return result.ToList();
 
             }

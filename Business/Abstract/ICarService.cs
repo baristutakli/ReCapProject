@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IProductService
+    public interface ICarService
     {
         IDataResult< List<Car>> GetAll();
         IDataResult<Car> GetById(int id);
@@ -17,7 +17,7 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetCarsByBrandId(int id);
         IDataResult<List<Car>> GetAllByModelYear(string year);
         IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max);
-        IDataResult<List<ProductDetailDto>> GetProductDetail();
+        IDataResult<List<CarDetailDto>> GetProductDetail();
         IResult Add(Car car);
     }
 }

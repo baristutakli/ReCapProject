@@ -14,10 +14,10 @@ namespace Business.Abstract
         IDataResult<Rental> GetById(int id);
         IDataResult<List<Rental>> GetByCustomerId(short id);
         IDataResult<List<Rental>> GetByCarId(int id);
-        IDataResult<List<Rental>> GetByRentDate(DateTime time);
-        IDataResult<List<Rental>> GetByReturnDate(DateTime time);
+        IDataResult<List<Rental>> GetByRentDate(DateTime rentTime);
+        IDataResult<List<Rental>> GetByReturnDate(DateTime returnTime);
         //IDataResult<List<RentalDetailDto>> GetProductDetail();
-        IResult Add(Rental Rental);
+        IResult Add(Rental rental);
     }
 
   

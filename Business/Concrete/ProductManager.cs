@@ -8,49 +8,68 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Concrete.EntityFramework;
 using Entities.DTOs;
+using Core.Utilities.Results;
+using Business.Constants;
 
 namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
         EfProductDal _efProductDal;
-        public List<Car> GetAll()
+
+        public IResult Add(Car car)
         {
-            return _efProductDal.GetAll();
+            if (car.Id<1)
+            {
+                
+                return new ErrorResult(Messages.ProductNameInvalid);
+            }
+            _efProductDal.Add(car);
+            return new SuccessResult(Messages.ProductAdded);
+        }
+
+        public IDataResult<List<Car>> GetAll()
+        {
+            // Business code goes here. For instance,
+            if (DateTime.Now.Hour==22)
+            {
+                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<Car>>(_efProductDal.GetAll(),Messages.ProductListed);
         }
 
 
 
-        public List<Car> GetAllByModelYear(string year)
+        public IDataResult<List<Car>> GetAllByModelYear(string year)
         {
-            return _efProductDal.GetAll(p => p.ModelYear == year);
+            return  new SuccessDataResult<List<Car>>(_efProductDal.GetAll(p => p.ModelYear == year));
         }
 
-        public List<Car> GetByDailyPrice(decimal min, decimal max)
+        public IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max)
         {
             // return _efCarDal.GetByDailyPrice(min, max);
-            return _efProductDal.GetAll(p => p.DailyPrice >= min && p.DailyPrice >= max);
+            return new SuccessDataResult<List<Car>>(_efProductDal.GetAll(p => p.DailyPrice >= min && p.DailyPrice >= max));
         }
 
-        public Car GetById(int id)
+        public IDataResult<Car> GetById(int id)
         {
-            return _efProductDal.Get(p => p.Id == id);
+            return new SuccessDataResult<Car>(_efProductDal.Get(p => p.Id == id));
         }
 
-        public List<Car> GetCarsByBrandId(int id)
+        public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {
             //  return _efCarDal.GetCarsByBrandId(id);
-            return _efProductDal.GetAll(p => p.BrandId == id);
+            return new SuccessDataResult<List<Car>>(_efProductDal.GetAll(p => p.BrandId == id));
         }
 
-        public List<Car> GetCarsByColorId(short id)
+        public IDataResult<List<Car>> GetCarsByColorId(short id)
         {
-            return _efProductDal.GetAll(p => p.ColorID == id);
+            return new SuccessDataResult<List<Car>>(_efProductDal.GetAll(p => p.ColorID == id));
         }
 
-        public List<ProductDetailDto> GetProductDetail()
+        public IDataResult<List<ProductDetailDto>> GetProductDetail()
         {
-            return _efProductDal.GetProductDetail();
+            return new SuccessDataResult<List<ProductDetailDto>>(_efProductDal.GetProductDetail());
         }
     }
 }

@@ -31,32 +31,32 @@ namespace Business.Concrete
 
         public IDataResult<List<Rental>> GetAll()
         {
-            throw new NotImplementedException();
+            return new  SuccessDataResult<List<Rental>>( _efRentalDal.GetAll());
         }
 
-        public IDataResult<List<Rental>> GetByCarId(int id)
+        public IDataResult<Rental> GetByCarId(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Rental>(_efRentalDal.Get(r=>r.CarID==id ));
         }
 
-        public IDataResult<List<Rental>> GetByCustomerId(short id)
+        public IDataResult<Rental> GetByCustomerId(short id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Rental>(_efRentalDal.Get(r => r.CustomerID == id));
         }
 
         public IDataResult<Rental> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Rental>(_efRentalDal.Get(r => r.ID == id));
         }
 
         public IDataResult<List<Rental>> GetByRentDate(DateTime rentTime)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Rental>>(_efRentalDal.GetAll(r=> r.RentDate==rentTime));
         }
 
         public IDataResult<List<Rental>> GetByReturnDate(DateTime returnTime)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Rental>>(_efRentalDal.GetAll(r => r.RentDate == returnTime));
         }
     }
 }

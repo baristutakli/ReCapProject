@@ -10,6 +10,8 @@ using DataAccess.Concrete.EntityFramework;
 using Entities.DTOs;
 using Core.Utilities.Results;
 using Business.Constants;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules;
 
 namespace Business.Concrete
 {
@@ -17,6 +19,7 @@ namespace Business.Concrete
     {
         EfCarDal _efCarDal;
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             if (car.Id<1)

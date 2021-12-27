@@ -15,6 +15,7 @@
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<CarImage> CarImages { get; set; }
 
     }
 }

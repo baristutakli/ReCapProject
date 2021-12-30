@@ -1,8 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
+using Core.Utilities.Helpers;
 using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,25 +17,38 @@ namespace Business.Concrete
     public class CarImageManager : ICarImageService
     {
         EfCarImageDal _efCarImageDal;
-        public IResult Add(CarImage carImage)
+        IFileHelper _fileHelper;
+        public CarImageManager(EfCarImageDal carImageDal, IFileHelper fileHelper)
         {
-            if (carImage.ID>0)
+            _efCarImageDal = carImageDal;
+            _fileHelper = fileHelper;
+        }
+        public IResult Add(IFormFile file, CarImage carImage)
+        {
+            IResult result = BusinessRules.Run(CheckIfCarImageLimitExceded(carImage.CarID));
+            if (result != null)
             {
-                _efCarImageDal.Add(carImage);
-                return new SuccessResult(Messages.ProductAdded);
+                return result;
             }
-            return new ErrorResult();
+            carImage.ImagePath = _fileHelper.Upload(file, PathConstants.ImagesPath);
+            carImage.Date = DateTime.Now;
+            _efCarImageDal.Add(carImage);
+            return new SuccessResult("Resim başarıyla yüklendi");
         }
 
         public IResult Delete(CarImage carImage)
         {
-            if (_efCarImageDal.Get(c=>c.ID==carImage.ID)!=null)
-            {
-                _efCarImageDal.Delete(carImage);
-                return new SuccessResult();
-            }
-            return new ErrorResult();
+            _fileHelper.Delete(PathConstants.ImagesPath + carImage.ImagePath);
+            _efCarImageDal.Delete(carImage);
+            return new SuccessResult();
         }
+        public IResult Update(IFormFile file, CarImage carImage)
+        {
+            carImage.ImagePath = _fileHelper.Update(file, PathConstants.ImagesPath + carImage.ImagePath, PathConstants.ImagesPath);
+            _efCarImageDal.Update(carImage);
+            return new SuccessResult();
+        }
+
 
         public IDataResult<List<CarImage>> GetAll()
         {
@@ -55,9 +71,14 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarImage>>(_efCarImageDal.GetAll(c => c.ID == id));
         }
 
-        public IResult Update(CarImage carImage)
+  
+        private IResult CheckIfCarImageLimitExceded(int carID)
         {
-            _efCarImageDal.Update(carImage);
+            var result = _efCarImageDal.GetAll(c => c.CarID == carID).Count;
+            if (result>5)
+            {
+                return new ErrorResult();
+            }
             return new SuccessResult();
         }
     }

@@ -16,6 +16,6 @@ This is a car rental project developed using following technologies:
 
 Database Diagram:
 <p style="text-align:center">
-<img src="https://github.com/baristutakli/ReCapProject/DbDiagram.png" ></br>
+<img src="https://github.com/baristutakli/ReCapProject/blob/main/DbDiagram.png" ></br>
 </p>
 

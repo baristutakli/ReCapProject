@@ -50,6 +50,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
         [HttpPost("update")]
         public IActionResult Update([FromForm] IFormFile file, [FromForm] CarImage carImage)
         {

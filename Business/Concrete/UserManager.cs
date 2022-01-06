@@ -23,7 +23,7 @@ namespace Business.Concrete
 
         public IDataResult<List<User>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult(_efUserDal.GetAll());
         }
 
         public IDataResult<User> GetById(int id)

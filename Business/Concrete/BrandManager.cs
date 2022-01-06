@@ -22,7 +22,7 @@ namespace Business.Concrete
 
         public IResult Add(Brand brand)
         {
-            if (brand.Name.Length < 2)
+            if (brand.Name.Length < 2)// Bu kısmı validation ile kontrol edeceğiz
             {
                 return new ErrorResult(Messages.ProductNameInvalid);
             }

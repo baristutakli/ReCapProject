@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         {
             _customerService = customerService;
         }
-        [HttpGet]
+        [HttpGet("getAll")]
         public IActionResult GetAll()
         {
             var result = _customerService.GetAll();
@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
-        [HttpGet]
+        [HttpGet("getByUserId")]
         public IActionResult GetByUserID(int id)
         {
             var result = _customerService.GetByUserID(id);
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
-        [HttpGet]
+        [HttpGet("getByCompanyName")]
         public IActionResult GetByCompanyName(string companyName)
         {
             var result = _customerService.GetByCompanyName(companyName);

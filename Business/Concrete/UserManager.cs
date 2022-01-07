@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -13,31 +14,31 @@ namespace Business.Concrete
 {
     public class UserManager : IUserService
     {
-        EfUserDal _efUserDal;
-        public UserManager(EfUserDal efUserDal)
+        IUserDal _userDal;
+        public UserManager(IUserDal userDal)
         {
-            _efUserDal = efUserDal;
+            _userDal = userDal;
         }
         public IResult Add(User user)
         {
             // Business control operations goes here.
-            _efUserDal.Add(user);
+            _userDal.Add(user);
             return new SuccessResult(Messages.ProductAdded);
         }
 
         public IDataResult<List<User>> GetAll()
         {
-            return new SuccessDataResult<List<User>>(_efUserDal.GetAll());
+            return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
 
         public IDataResult<User> GetById(int id)
         {
-            return new SuccessDataResult<User>(_efUserDal.Get(u=>u.ID==id));
+            return new SuccessDataResult<User>(_userDal.Get(u=>u.ID==id));
         }
 
         public IDataResult<User> GetUsersByEmail(string email)
         {
-            return new SuccessDataResult<User>(_efUserDal.Get(u=>u.Email==email));
+            return new SuccessDataResult<User>(_userDal.Get(u=>u.Email==email));
         }
     }
 }

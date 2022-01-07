@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
             _carService = carService;
         }
 
-        [HttpGet]
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var result = _carService.GetAll();
@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet]
+        [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
             var result = _carService.GetById(id);
@@ -41,7 +41,7 @@ namespace WebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
+        [HttpGet("getByBrandId")]
         public IActionResult GetByBrandId(int id)
         {
             var result = _carService.GetCarsByBrandId(id);
@@ -51,7 +51,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
-        [HttpGet]
+        [HttpGet("getByColorId")]
         public IActionResult GetByColorId(short id)
         {
             var result = _carService.GetCarsByColorId(id);
@@ -61,8 +61,8 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
-        [HttpGet]
-        public IActionResult GetByDailyPrice(decimal min, decimal max)
+        [HttpGet("getbyDailyPrice")]
+        public IActionResult GetByDailyPrice(decimal min=0, decimal max=100)
         {
             var result = _carService.GetByDailyPrice(min, max);
             if (result.Success)
@@ -71,7 +71,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
-        [HttpGet]
+        [HttpGet("getByModelYear")]
         public IActionResult GetAllByModelYear(string year)
         {
             var result = _carService.GetAllByModelYear(year);
@@ -82,7 +82,7 @@ namespace WebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
+        [HttpGet("getBCarDetail")]
         public IActionResult GetCarDetail()
         {
             var result = _carService.GetProductDetail();

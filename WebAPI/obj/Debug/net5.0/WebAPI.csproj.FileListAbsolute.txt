@@ -36,7 +36,6 @@ C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.I
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -76,3 +75,5 @@ C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\obj\Debug\net5.0\WebAPI.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\obj\Debug\net5.0\ref\WebAPI.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\obj\Debug\net5.0\WebAPI.pdb
 C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\obj\Debug\net5.0\WebAPI.genruntimeconfig.cache
+C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\kbez1\Documents\kodlar\ReCapProject\WebAPI\obj\Debug\net5.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs

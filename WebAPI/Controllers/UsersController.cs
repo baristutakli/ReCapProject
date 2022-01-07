@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("getAll")]
         public IActionResult GetAll()
         {
             var result = _userService.GetAll();
@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
-        [HttpGet]
+        [HttpGet("getById")]
         public IActionResult GetById(int id)
         {
             var result = _userService.GetById(id);
@@ -41,7 +41,7 @@ namespace WebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
+        [HttpGet("getByEmail")]
         public IActionResult GetUsersByEmail(string email)
         {
             var result = _userService.GetUsersByEmail( email);

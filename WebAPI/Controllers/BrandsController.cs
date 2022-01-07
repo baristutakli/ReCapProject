@@ -24,17 +24,18 @@ namespace WebAPI.Controllers
             var result = _brandService.GetAll();
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
             return BadRequest();
         }
-        [HttpGet]
+
+        [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
             var result = _brandService.GetById(id);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data);
             }
             return BadRequest();
         }

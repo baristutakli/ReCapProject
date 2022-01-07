@@ -18,5 +18,38 @@ namespace WebAPI.Controllers
         {
             _userService = userService;
         }
+
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _userService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            var result = _userService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
+        [HttpGet]
+        public IActionResult GetUsersByEmail(string email)
+        {
+            var result = _userService.GetUsersByEmail( email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
     }
 }

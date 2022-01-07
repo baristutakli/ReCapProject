@@ -28,6 +28,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            var result = _brandService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
 
 
     }

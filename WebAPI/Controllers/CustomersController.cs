@@ -18,5 +18,35 @@ namespace WebAPI.Controllers
         {
             _customerService = customerService;
         }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _customerService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+        [HttpGet]
+        public IActionResult GetByUserID(int id)
+        {
+            var result = _customerService.GetByUserID(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+        [HttpGet]
+        public IActionResult GetByCompanyName(string companyName)
+        {
+            var result = _customerService.GetByCompanyName(companyName);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
     }
 }

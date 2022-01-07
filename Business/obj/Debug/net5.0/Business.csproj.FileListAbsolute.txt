@@ -10,9 +10,9 @@ C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\bin\Debug\net5.0\Business.
 C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\bin\Debug\net5.0\Core.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\bin\Debug\net5.0\DataAccess.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\bin\Debug\net5.0\Entities.dll
+C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\bin\Debug\net5.0\Core.pdb
 C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\bin\Debug\net5.0\DataAccess.pdb
 C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\bin\Debug\net5.0\Entities.pdb
-C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\bin\Debug\net5.0\Core.pdb
 C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\obj\Debug\net5.0\Business.csproj.CopyComplete
 C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\obj\Debug\net5.0\Business.dll
 C:\Users\kbez1\Documents\kodlar\ReCapProject\Business\obj\Debug\net5.0\ref\Business.dll

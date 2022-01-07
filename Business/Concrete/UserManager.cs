@@ -14,6 +14,10 @@ namespace Business.Concrete
     public class UserManager : IUserService
     {
         EfUserDal _efUserDal;
+        public UserManager(EfUserDal efUserDal)
+        {
+            _efUserDal = efUserDal;
+        }
         public IResult Add(User user)
         {
             // Business control operations goes here.
@@ -23,7 +27,7 @@ namespace Business.Concrete
 
         public IDataResult<List<User>> GetAll()
         {
-            return new SuccessDataResult(_efUserDal.GetAll());
+            return new SuccessDataResult<List<User>>(_efUserDal.GetAll());
         }
 
         public IDataResult<User> GetById(int id)

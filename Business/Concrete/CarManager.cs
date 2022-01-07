@@ -19,6 +19,12 @@ namespace Business.Concrete
     {
         EfCarDal _efCarDal;
 
+        public CarManager(EfCarDal efCarDal)
+        {
+            _efCarDal = efCarDal;
+        }
+
+
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {

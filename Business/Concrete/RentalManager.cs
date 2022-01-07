@@ -15,6 +15,11 @@ namespace Business.Concrete
     public class RentalManager : IRentalService
     {
         EfRentalDal _efRentalDal;
+
+        public RentalManager(EfRentalDal efRentalDal)
+        {
+            _efRentalDal = efRentalDal;       
+        }
         public IResult Add(Rental rental)
         {
             if (_efRentalDal.Get(c=>c.CarID== rental.CarID).ReturnDate<rental.RentDate)

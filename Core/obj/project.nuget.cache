@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g96KeG76PGff3u0aMmQE2pTqRyvd/s/j2XiDsQ+RvwqLsEwodR+zMt/WMHwmAQpzwXl02LseES64I48P4MLNtw==",
+  "dgSpecHash": "ehvelx3esj2GOEnA3J8fLqgIVzVUBziI6H0rqSgjikV02DVHjJaS2fttWSpGGdUHp4s1O0HWAAyi1XfhuFuYLw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kbez1\\Documents\\kodlar\\FinalProject\\Core\\Core.csproj",
+  "projectFilePath": "C:\\Users\\kbez1\\Documents\\kodlar\\ReCapProject\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kbez1\\.nuget\\packages\\autofac\\6.3.0\\autofac.6.3.0.nupkg.sha512",
     "C:\\Users\\kbez1\\.nuget\\packages\\autofac.extensions.dependencyinjection\\7.2.0\\autofac.extensions.dependencyinjection.7.2.0.nupkg.sha512",

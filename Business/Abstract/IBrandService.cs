@@ -14,5 +14,6 @@ namespace Business.Abstract
         IDataResult<Brand> GetById(int id);
         IResult Add(Brand brand);
 
+
     }
 }

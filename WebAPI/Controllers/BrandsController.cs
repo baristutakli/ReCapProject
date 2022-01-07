@@ -18,5 +18,17 @@ namespace WebAPI.Controllers
         {
             _brandService = brandService;
         }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = _brandService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
+
     }
 }

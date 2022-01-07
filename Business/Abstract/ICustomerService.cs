@@ -12,9 +12,9 @@ namespace Business.Abstract
     {
         IDataResult<List<Customer>> GetAll();
         IDataResult<Customer> GetByUserID(int id);
-        IDataResult<Customer> GetByCompanyName(string email);
+        IDataResult<Customer> GetByCompanyName(string companyName);
 
-        IResult Add(Customer Customer);
+        IResult Add(Customer customer);
     }
 }
 

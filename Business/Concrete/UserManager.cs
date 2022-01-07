@@ -32,12 +32,12 @@ namespace Business.Concrete
 
         public IDataResult<User> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<User>(_efUserDal.Get(u=>u.ID==id));
         }
 
         public IDataResult<User> GetUsersByEmail(string email)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<User>(_efUserDal.Get(u=>u.Email==email));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -14,17 +15,17 @@ namespace Business.Concrete
 {
     public class RentalManager : IRentalService
     {
-        EfRentalDal _efRentalDal;
+        IRentalDal _ICarImageDal;
 
-        public RentalManager(EfRentalDal efRentalDal)
+        public RentalManager(IRentalDal rentalDal)
         {
-            _efRentalDal = efRentalDal;       
+            _ICarImageDal = rentalDal;       
         }
         public IResult Add(Rental rental)
         {
-            if (_efRentalDal.Get(c=>c.CarID== rental.CarID).ReturnDate<rental.RentDate)
+            if (_ICarImageDal.Get(c=>c.CarID== rental.CarID).ReturnDate<rental.RentDate)
             {
-                _efRentalDal.Add(rental);
+                _ICarImageDal.Add(rental);
                 return new SuccessResult(Messages.ProductAdded);
             }
             else
@@ -37,38 +38,38 @@ namespace Business.Concrete
 
         public IDataResult<List<Rental>> GetAll()
         {
-            return new  SuccessDataResult<List<Rental>>( _efRentalDal.GetAll());
+            return new  SuccessDataResult<List<Rental>>( _ICarImageDal.GetAll());
         }
 
         public IDataResult<Rental> GetByCarId(int id)
         {
-            return new SuccessDataResult<Rental>(_efRentalDal.Get(r=>r.CarID==id ));
+            return new SuccessDataResult<Rental>(_ICarImageDal.Get(r=>r.CarID==id ));
         }
 
         public IDataResult<Rental> GetByCustomerId(short id)
         {
-            return new SuccessDataResult<Rental>(_efRentalDal.Get(r => r.CustomerID == id));
+            return new SuccessDataResult<Rental>(_ICarImageDal.Get(r => r.CustomerID == id));
         }
 
         public IDataResult<Rental> GetById(int id)
         {
-            return new SuccessDataResult<Rental>(_efRentalDal.Get(r => r.ID == id));
+            return new SuccessDataResult<Rental>(_ICarImageDal.Get(r => r.ID == id));
         }
 
         public IDataResult<List<Rental>> GetByRentDate(DateTime rentTime)
         {
-            return new SuccessDataResult<List<Rental>>(_efRentalDal.GetAll(r=> r.RentDate==rentTime));
+            return new SuccessDataResult<List<Rental>>(_ICarImageDal.GetAll(r=> r.RentDate==rentTime));
         }
 
         public IDataResult<List<Rental>> GetByReturnDate(DateTime returnTime)
         {
-            return new SuccessDataResult<List<Rental>>(_efRentalDal.GetAll(r => r.RentDate == returnTime));
+            return new SuccessDataResult<List<Rental>>(_ICarImageDal.GetAll(r => r.RentDate == returnTime));
         }
 
         public IDataResult<List< RentalDetailDto>>GetRentalDetail(int rentalId)
         {
             // Düzenlenecek, parametreli şekilde tekrardan ayzılacak.
-            return new SuccessDataResult<List<RentalDetailDto>>(_efRentalDal.GetRentalDetail(rentalId));
+            return new SuccessDataResult<List<RentalDetailDto>>(_ICarImageDal.GetRentalDetail(rentalId));
         }
     }
 }

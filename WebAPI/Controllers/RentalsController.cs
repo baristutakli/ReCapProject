@@ -21,9 +21,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getRentalDetail")]
-        public IActionResult GetRentalDetail(int rentalId)
+        public IActionResult GetRentalDetail()
         {
-            var result = _rentalService.GetRentalDetail(rentalId);
+            var result = _rentalService.GetRentalDetail();
             if (result.Success)
             {
                 return Ok(result);
@@ -31,6 +31,19 @@ namespace WebAPI.Controllers
             return BadRequest(Messages.InvalidRentalId);
             
         }
+
+        [HttpGet("getRentalDetailByUserId/{userId}")]
+        public IActionResult GetRentalDetailById(int userId)
+        {
+            var result = _rentalService.GetRentalDetailById(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(Messages.InvalidRentalId);
+
+        }
+
 
         [HttpGet("getAll")]
         public IActionResult GetAll()

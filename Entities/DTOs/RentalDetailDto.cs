@@ -10,6 +10,8 @@ namespace Entities.DTOs
     public class RentalDetailDto:IDto
     {
         //Düzenlenecek
+        public int RentalId { get; set; }
+        public int UserId { get; set; }
         public int CarID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

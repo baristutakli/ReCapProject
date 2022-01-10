@@ -66,10 +66,15 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_IRentalDal.GetAll(r => r.RentDate == returnTime));
         }
 
-        public IDataResult<List< RentalDetailDto>>GetRentalDetail(int rentalId)
+        public IDataResult<List< RentalDetailDto>>GetRentalDetail()
         {
             // Düzenlenecek, parametreli şekilde tekrardan ayzılacak.
-            return new SuccessDataResult<List<RentalDetailDto>>(_IRentalDal.GetRentalDetail(rentalId));
+            return new SuccessDataResult<List<RentalDetailDto>>(_IRentalDal.GetRentalDetail());
         }
+        public IDataResult<RentalDetailDto> GetRentalDetailById(int userId)
+        {
+            return new SuccessDataResult<RentalDetailDto>(_IRentalDal.GetRentalDetailById(userId));
+        }
+
     }
 }

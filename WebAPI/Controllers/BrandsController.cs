@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -29,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpGet("getbyid")]
+        [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
             var result = _brandService.GetById(id);
@@ -38,6 +40,43 @@ namespace WebAPI.Controllers
                 return Ok(result.Data);
             }
             return BadRequest();
+        }
+        [HttpPost]
+        public IActionResult Create([FromQuery] string brandName)
+        {
+            try
+            {
+                _brandService.Add(new Brand {Name=brandName});
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id,[FromBody] Brand newBrand)
+        {
+            var result=  _brandService.GetById(id);
+            if (result is not null)
+            {
+                try
+                {
+                    result.Data.Name = newBrand.Name;
+                    _brandService.Update(result.Data);
+                }
+                catch (Exception)
+                {
+
+                    return StatusCode(500);
+                }
+
+                
+            }
+            return Ok();
+
         }
 
 

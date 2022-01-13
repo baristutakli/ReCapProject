@@ -52,7 +52,7 @@ namespace Business.Concrete
             catch (Exception)
             {
 
-                throw;
+                return new ErrorResult();
             }
             
             return new SuccessResult();

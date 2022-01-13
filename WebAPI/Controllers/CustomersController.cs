@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -47,6 +48,42 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest();
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromForm] Customer customer)
+        {
+            try
+            {
+                _customerService.Add(new Customer { CompanyName=customer.CompanyName });
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            return Ok();
+        }
+        [HttpPut("{id}")]
+        public IActionResult Update(int id,[FromBody] Customer customer)
+        {
+            var result = _customerService.GetByUserID(id);
+            if (result is not null)
+            {
+                try
+                {
+                    result.Data.CompanyName = customer.CompanyName;
+                    _customerService.Update(result.Data);
+                }
+                catch (Exception)
+                {
+
+                    return StatusCode(500);
+                }
+
+
+            }
+            return Ok();
         }
     }
 }

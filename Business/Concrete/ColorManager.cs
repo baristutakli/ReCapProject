@@ -40,5 +40,20 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Color>(_colorDal.Get(c => c.ID == id));
         }
+
+        public IResult Update(Color color)
+        {
+            try
+            {
+                _colorDal.Update(color);
+            }
+            catch (Exception)
+            {
+
+                return new ErrorResult();
+            }
+
+            return new SuccessResult();
+        }
     }
 }

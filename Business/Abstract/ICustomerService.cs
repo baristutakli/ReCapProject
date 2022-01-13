@@ -15,6 +15,7 @@ namespace Business.Abstract
         IDataResult<Customer> GetByCompanyName(string companyName);
 
         IResult Add(Customer customer);
+        IResult Update(Customer customer);
     }
 }
 

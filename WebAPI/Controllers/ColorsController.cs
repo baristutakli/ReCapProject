@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -39,6 +40,45 @@ namespace WebAPI.Controllers
             }
             return BadRequest();
         }
+
+        [HttpPost]
+        public IActionResult Create([FromQuery] string colorName)
+        {
+            try
+            {
+                _colorService.Add(new Color { Name = colorName });
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(short id, [FromBody] Color newColor)
+        {
+            var result = _colorService.GetById(id);
+            if (result is not null)
+            {
+                try
+                {
+                    result.Data.Name = newColor.Name;
+                    _colorService.Update(result.Data);
+                }
+                catch (Exception)
+                {
+
+                    return StatusCode(500);
+                }
+
+
+            }
+            return Ok();
+
+        }
+
 
     }
 }
